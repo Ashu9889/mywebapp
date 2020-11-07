@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <h1>Reset Password</h1>
+  <% if (success_message != ''){ %>
+    <div class="alert alert-dismissible alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong> <%= success_message %> </strong>
+    </div>
+    <% } %>
+ 
+    <% if( err != '') { %>
+    <div class="alert alert-dismissible alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong><%= err %></strong>
+    </div>
+    <% } %>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="card">
+        <div class="card-body">
+
+          <form action="/success" method="POST">
+            <div class="form-group">
+              <label for="email"><%= lb %> </label>
+              <input type="text" class="form-control" name="username">
+              <% if(lp!= '') { %>
+              <label for="new"><%= lp %> </label>
+              <input type="password" class="form-control" name="new">
+              <% } %>
+            </div>
+            <button type="submit" class="btn btn-dark">submit</button>
+            
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    
+
+  </div>
+</div>
+
+<%- include('partials/footer') %>
